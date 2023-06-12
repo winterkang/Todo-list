@@ -17,6 +17,15 @@ function saveTodo(){
 }
 
 
+// click or keydown
+function handleEvent(event){
+  if (event.type == 'click'){
+    createTodo()
+  }else if (event.type == 'keydown'){
+    createTodo()
+  }
+}
+
 function createTodo(e){
   const todo = inputTodo.value.trim() // 입력 값의 앞뒤 공백 제거
   if (todo.length === 0){  // 입력값이 없는데 제출한 경우
@@ -70,14 +79,7 @@ function deleteTodo(){
   todoBox.parentNode.removeChild(todoBox)
 }
 
-// click or keydown
-function handleEvent(event){
-  if (event.type == 'click'){
-    createTodo()
-  }else if (event.type == 'keydown'){
-    createTodo()
-  }
-}
+
 // 이벤트 실행
 submitButton.addEventListener('click', createTodo) 
 inputTodo.addEventListener('keydown', handleKeydown)
